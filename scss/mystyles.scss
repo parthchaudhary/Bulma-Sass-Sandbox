@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+
+// Set your brand colors
+$purple: #8A4D76;
+$pink: #FA7C91;
+$brown: #757763;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+$sky-blue: #12acdf;
+$body-bg-color:#ffffff;
+$body-font-size: 16px;
+$white: #ffffff;
+$black-text: #323232;
+$light-gray: #F3F4F8;
+$black-1: #010101;
+$blue: #367BED;
+
+// Update Bulma's global variables
+$family-sans-serif: "Lato",
+sans-serif;
+$grey-dark: $brown;
+$grey-light: $beige-light;
+$primary: $purple;
+$link: $sky-blue;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$body-background-color: $body-bg-color;
+$control-border-width: 1px;
+$input-border-color: #000000;
+$input-shadow: none;
+
+// custom var
+$container-width: 1134px+30px;
+
+// functions
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return #{$remSize}rem;
+}
+
+// Mixin that will include the fall back px declaration as well as the calculated rem value.
+@mixin rem($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// Importing Bulma
+@import "../node_modules/bulma/bulma.sass";
+
+// container width and reset css
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    color: $black-text;
+}
+
+@media(min-width:1024px) {
+    .container {
+        max-width: $container-width;
+    }
+}
+
+img {
+    vertical-align: middle;
+}
+
+.columns {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
